@@ -1,0 +1,15 @@
+<form class="col-md-4 offset-md-4">
+<div class="form-group" #form>
+    <label>Enter Id</label>
+    <input type="text" class="form-control" placeholder="enter the id" #id>
+</div>
+<div class="form-group">
+    <label>Enter the name</label>
+    <input type="text" class="form-control" placeholder="enter the name" #name>
+</div>
+<div class="form-group">
+    <label>Enter the url of Image</label>
+    <input type="text" class="form-control" placeholder="enter the url" #url>
+</div>
+<button type="button" class="btn btn-secondary" (click)="navigate(id.value,name.value,url.value)"> Navigate</button>
+</form>

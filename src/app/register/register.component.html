@@ -1,0 +1,43 @@
+<div class="col-md-4 offset-md-4">
+    <form [formGroup]="regForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" placeholder="enter the name" formControlName="name">
+            <div style="color:red;" *ngIf="regForm.get('name').touched">enter the name</div>
+        </div>
+        <div class="form-group">
+            <label>password</label>
+            <input type="password" name="password" class="form-control" placeholder="enter the pass"
+                formControlName="password">
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" class="form-control" placeholder="enter the Confirm Password"
+                formControlName="confirmPassword">
+        </div>
+        <div class="form-group">
+            <label>MobileNumber</label>
+            <input type="text" name="mobilenumber" class="form-control" placeholder="enter the mobile"
+                formControlName="mobileNum">
+        </div>
+        <div formArrayName="skills">
+            <div class="form-group" *ngFor='let groupSkills of skills.controls ; index as i'>
+                <label>Skill {{i+1}}</label>
+                <div>
+                    <input type="text" class="form-control" name="skill-{{i+1}}" [formControlName]='i'>
+                    <button type="button" class="btn btn-secondary" (click)="removeSkill(i)">Remove</button>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <button type="button" (click)="addskill()">Add</button>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-secondary" name="submit" [disabled]="!regForm.valid">Submit</button>
+            <button type="reset" class="btn btn-secondary ml-2" name="reset">Reset</button>
+        </div>
+    </form>
+</div>
+<H1>VALID--------->{{regForm.valid}}</H1>
+<H2>INVALID--------->{{regForm.invalid}}</H2>

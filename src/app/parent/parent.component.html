@@ -1,0 +1,12 @@
+<!--step 2 have child selector in parent compoent and create attribute inside the selector-->
+<!--step 3 use property binding to bind the variable  to attribute-->
+<app-child [dataFromParent]='employee' (childEvent)='dataFromChild=$event'></app-child>
+
+<div *ngIf="dataFromChild" >
+    <h1>data from child to parent</h1>
+{{dataFromChild.name}}
+{{dataFromChild.gender}}
+{{dataFromChild.course}}
+{{dataFromChild.marks}}
+</div>
+<h2>{{company}}</h2>

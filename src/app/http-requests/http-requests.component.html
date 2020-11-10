@@ -1,0 +1,7 @@
+<button type="button" class="btn btn-secondary ml-4 mt-4" (click)="getDataFromService()">GET</button>
+<button type="button" class="btn btn-secondary ml-4 mt-4" (click)="postDataToService()">POST</button>
+<div *ngFor="let emp of employee">
+{{emp.id}}
+{{emp.first_name}}
+<img [src]="emp.avatar">
+</div>

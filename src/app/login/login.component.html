@@ -1,0 +1,28 @@
+<div class="card col-md-4 offset-md-4 mt-5">
+    <div class="card-body">
+        <form #form="ngForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" name="username" placeholder="enter the username" #name="ngModel" ngModel required>
+                <div style="color: red;" *ngIf="name.touched && name.dirty && name.value.length<4 && name.value!=''"> name should have atleast 4 characters</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" name="pass" placeholder="enter the password" #password="ngModel" ngModel required>
+                <div style="color: red;" *ngIf="password.touched && password.dirty ||password.value != '' "> enter the password </div>
+            </div>
+            <div>
+                <button type="submit"  class="btn btn-secondary" name="submit">Submit</button>
+                <button type="reset" class="btn btn-secondary ml-2" name="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<h1>touched----------->{{form.touched}}</h1>
+<h1>Untouched------------>{{form.untouched}}</h1>
+<h1>pristine--------------->{{form.pristine}}</h1>
+<h1>Dirty--------------->{{form.dirty}}</h1>
+<h1>valid--------------->{{form.valid}}</h1>
+<h1>invalid--------------->{{form.invalid}}</h1>
